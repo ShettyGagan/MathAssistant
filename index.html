@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Learning Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Visual Learning Assistant</h1>
+                <div class="language-selector">
+                    <label for="language">Language:</label>
+                    <select id="language">
+                        
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-wrapper">
+                <section id="camera-section">
+                    <h2>Capture Mathematical Problem</h2>
+                    <div class="camera-container">
+                        <video id="camera" autoplay playsinline></video>
+                        <canvas id="canvas" class="hidden-canvas"></canvas>
+                    </div>
+                    <button id="capture-btn" class="capture-btn">
+                        <span class="icon">📸</span> Capture
+                    </button>
+                </section>
+
+                <section id="solution-section">
+                    <h2>Solution</h2>
+                    <div class="solution-content">
+                        <div class="problem-solution">
+                            <p><strong>Problem:</strong> <span id="problem">Capture a problem to see the solution</span></p>
+                            <p><strong>Solution:</strong> <span id="solution"></span></p>
+                        </div>
+
+                        <div class="steps-container">
+                            <h3>Steps:</h3>
+                            <ul id="steps" class="steps-list"></ul>
+                        </div>
+
+                        <div class="controls">
+                            <button id="speak-btn" class="listen-btn">
+                                <span class="icon">🔊</span> Listen
+                            </button>
+                            <button id="stopspeak" class="listen-btn">
+                                <span class="icon">🔊</span> stop
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
