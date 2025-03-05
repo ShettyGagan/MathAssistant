@@ -24,13 +24,27 @@ languages.forEach(lang=>{
 });
 
 //start camera
-navigator.mediaDevices.getUserMedia({video:true})
+navigator.mediaDevices.getUserMedia(
+    {video:true})
 .then(stream=>{
     video.srcObject=stream;
+
+     // Check if we can switch to back camera on mobile
+     const tracks = stream.getVideoTracks();
+     if (isMobileDevice() && tracks.length > 0) {
+         tracks[0].applyConstraints({ facingMode: "environment" });
+         console.log(isMobileDevice());
+     }
 })
+
 .catch(error=>{
     console.error("Camera access denied", error);
 });
+
+// Function to detect if the device is mobile
+function isMobileDevice() {
+    return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+}
 
 //capture image and send to api
 captureBtn.addEventListener("click",async()=>{
